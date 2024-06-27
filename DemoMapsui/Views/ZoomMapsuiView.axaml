@@ -1,0 +1,47 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="DemoMapsui.Views.ZoomMapsuiView"
+			  xmlns:mapsui="clr-namespace:Mapsui.UI.Avalonia;assembly=Mapsui.UI.Avalonia"
+			 xmlns:vm ="clr-namespace:DemoMapsui.ViewModels;assembly=DemoMapsui"
+			 x:DataType="vm:ZoomMapsuiViewModel">
+	<Grid ColumnDefinitions="auto, *">
+		<StackPanel Width="150" Margin="10" Spacing="10">
+			<StackPanel Orientation="Horizontal">
+				<CheckBox IsChecked="{Binding ZoomLocked}"/>
+				<TextBlock Text="Lock Zoom"/>
+			</StackPanel>
+			<Button HorizontalAlignment="Stretch" 
+					Command="{Binding ZoomInCommand}"
+					Content="Zoom In"/>
+			<Button HorizontalAlignment="Stretch" 
+					Command="{Binding ZoomOutCommand}"
+					Content="Zoom Out"/>
+			<Button HorizontalAlignment="Stretch" 
+					Command="{Binding ZoomToLevelCommand}"
+					Content="Zoom To Level"/>
+			<Button HorizontalAlignment="Stretch" 
+					Command="{Binding ZoomToBoxCommand}"
+					Content="Zoom To Box"/>
+			<Button HorizontalAlignment="Stretch" 
+					Command="{Binding ZoomToPanBoundsCommand}"
+					Content="Zoom To Pan Bounds"/>
+			<ComboBox ItemsSource="{Binding Items}"
+					  HorizontalAlignment="Stretch"
+					  SelectedItem="{Binding SelectedItem}">
+				<ComboBox.ItemTemplate>
+					<DataTemplate>
+						<TextBlock Text="{Binding}" />
+					</DataTemplate>
+				</ComboBox.ItemTemplate>
+			</ComboBox>
+			<Slider Minimum="0" Maximum="40075"
+					IsVisible="{Binding SliderVisible}"
+					Value="{Binding SliderValue}" />
+		</StackPanel>
+		<mapsui:MapControl x:Name="mapControl" 
+						   Grid.Column="1"/>
+	</Grid>
+</UserControl>
