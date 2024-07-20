@@ -18,6 +18,17 @@
     <None Remove="Services\**" />
   </ItemGroup>
 
+  
+  <ItemGroup>
+    <AvaloniaResource Remove="Assets\gps.png" />
+    <AvaloniaResource Remove="Assets\gps.svg" />
+  </ItemGroup>
+
+  
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\gps.png" />
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
     <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />

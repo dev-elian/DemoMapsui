@@ -10,5 +10,5 @@
   <Design.DataContext>
     <vm:MainViewModel />
   </Design.DataContext>
-	<views:ZoomMapsuiView/>
+	<views:PointsView/>
 </UserControl>
